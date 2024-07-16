@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Honk-Regular';
+  src: url('Honk-Regular.ttf') format('truetype');
+}
+.minha-div {
+  font-family: 'Honk-Regular', sans-serif;
+  font-size: 90px; /* Exemplo de tamanho de fonte */
+}
+
+.keyboard {
+  height: 100%;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #111;
+  align-items: flex-start;
+}
+
+.key {
+  float: left;
+  position: relative;
+}
+
+.white {
+  height: 14.4vw;
+  width: 3.8095238095vw;
+  z-index: 1;
+  border-top: 0.12vw solid #AAAAAA;
+  border-bottom: 0.12vw solid #AAAAAA;
+  border-left: 0.12vw solid #AAAAAA;
+  background-color: #CBCBCB;
+}
+
+.black {
+  height: 7.92vw;
+  width: 2.0952380952vw;
+  z-index: 2;
+  border: 0.12vw solid #000000;
+  background-color: #222222;
+}
+
+.a, .b, .d, .e, .g, .black {
+  margin: 0 0 0 -1.1676190476vw;
+}
+
+#keyboard > .note:last-child {
+  border-right: 0.12vw solid #AAAAAA;
+}

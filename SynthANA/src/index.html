@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Teclado Musical</title>
+  
+  <!-- Incluindo o arquivo CSS externo -->
+  <link rel="stylesheet" href="teclado.css">
+  
+</head>
+<body>
+
+    <div class="minha-div">SynthANA      <button onclick="iniciarObjeto()">LIGA</button></div>
+    
+        
+    <div class="keyboard" id="keyboard">
+        <div class="key white c" onmousedown="soundPlayer.playSound(0)" onmouseleave="soundPlayer.stopSound(0)" onmouseup="soundPlayer.stopSound(0)"></div>
+        <div class="key black c_sharp" onmousedown="soundPlayer.playSound(1)" onmouseleave="soundPlayer.stopSound(1)" onmouseup="soundPlayer.stopSound(1)"></div>
+        <div class="key white d" onmousedown="soundPlayer.playSound(2)" onmouseleave="soundPlayer.stopSound(2)" onmouseup="soundPlayer.stopSound(2)"></div>
+        <div class="key black d_sharp" onmousedown="soundPlayer.playSound(3)" onmouseleave="soundPlayer.stopSound(3)"onmouseup="soundPlayer.stopSound(3)"></div>
+        <div class="key white e" onmousedown="soundPlayer.playSound(4)" onmouseleave="soundPlayer.stopSound(4)" onmouseup="soundPlayer.stopSound(4)"></div>
+        <div class="key white f" onmousedown="soundPlayer.playSound(5)" onmouseleave="soundPlayer.stopSound(5)" onmouseup="soundPlayer.stopSound(5)"></div>
+        <div class="key black f_sharp" onmousedown="soundPlayer.playSound(6)" onmouseleave="soundPlayer.stopSound(6)" onmouseup="soundPlayer.stopSound(6)"></div>
+        <div class="key white g" onmousedown="soundPlayer.playSound(7)" onmouseleave="soundPlayer.stopSound(7)" onmouseup="soundPlayer.stopSound(7)"></div>
+        <div class="key black g_sharp" onmousedown="soundPlayer.playSound(8)" onmouseleave="soundPlayer.stopSound(8)" onmouseup="soundPlayer.stopSound(8)"></div>
+        <div class="key white a" onmousedown="soundPlayer.playSound(9)" onmouseleave="soundPlayer.stopSound(9)" onmouseup="soundPlayer.stopSound(9)"></div>
+        <div class="key black a_sharp" onmousedown="soundPlayer.playSound(10)" onmouseleave="soundPlayer.stopSound(10)" onmouseup="soundPlayer.stopSound(10)"></div>
+        <div class="key white b" onmousedown="soundPlayer.playSound(11)" onmouseleave="soundPlayer.stopSound(11)" onmouseup="soundPlayer.stopSound(11)"></div>
+        <div class="key white c" onmousedown="soundPlayer.playSound(12)" onmouseleave="soundPlayer.stopSound(12)" onmouseup="soundPlayer.stopSound(12)"></div>
+        <div class="key black c_sharp" onmousedown="soundPlayer.playSound(13)" onmouseleave="soundPlayer.stopSound(13)" onmouseup="soundPlayer.stopSound(13)"></div>
+        <div class="key white d" onmousedown="soundPlayer.playSound(14)" onmouseleave="soundPlayer.stopSound(14)" onmouseup="soundPlayer.stopSound(14)"></div>
+        <div class="key black d_sharp" onmousedown="soundPlayer.playSound(15)" onmouseleave="soundPlayer.stopSound(15)" onmouseup="soundPlayer.stopSound(15)"></div>
+        <div class="key white e" onmousedown="soundPlayer.playSound(16)" onmouseleave="soundPlayer.stopSound(16)" onmouseup="soundPlayer.stopSound(16)"></div>
+        <div class="key white f" onmousedown="soundPlayer.playSound(17)" onmouseleave="soundPlayer.stopSound(17)" onmouseup="soundPlayer.stopSound(17)"></div>
+        <div class="key black f_sharp" onmousedown="soundPlayer.playSound(18)" onmouseleave="soundPlayer.stopSound(18)" onmouseup="soundPlayer.stopSound(18)"></div>
+        <div class="key white g" onmousedown="soundPlayer.playSound(19)" onmouseleave="soundPlayer.stopSound(19)" onmouseup="soundPlayer.stopSound(19)"></div>
+        <div class="key black g_sharp" onmousedown="soundPlayer.playSound(20)" onmouseleave="soundPlayer.stopSound(20)" onmouseup="soundPlayer.stopSound(20)"></div>
+        <div class="key white a" onmousedown="soundPlayer.playSound(21)" onmouseleave="soundPlayer.stopSound(21)" onmouseup="soundPlayer.stopSound(21)"></div>
+        <div class="key black a_sharp" onmousedown="soundPlayer.playSound(22)" onmouseleave="soundPlayer.stopSound(22)" onmouseup="soundPlayer.stopSound(22)"></div>
+        <div class="key white b" onmousedown="soundPlayer.playSound(23)" onmouseleave="soundPlayer.stopSound(23)" onmouseup="soundPlayer.stopSound(23)"></div>
+        <div class="key white c" onmousedown="soundPlayer.playSound(24)" onmouseleave="soundPlayer.stopSound(24)" onmouseup="soundPlayer.stopSound(24)"></div>
+        <div class="key black c_sharp" onmousedown="soundPlayer.playSound(25)" onmouseleave="soundPlayer.stopSound(25)" onmouseup="soundPlayer.stopSound(25)"></div>
+        <div class="key white d" onmousedown="soundPlayer.playSound(26)" onmouseleave="soundPlayer.stopSound(26)" onmouseup="soundPlayer.stopSound(26)"></div>
+        <div class="key black d_sharp" onmousedown="soundPlayer.playSound(27)" onmouseleave="soundPlayer.stopSound(27)" onmouseup="soundPlayer.stopSound(27)"></div>
+        <div class="key white e" onmousedown="soundPlayer.playSound(28)" onmouseleave="soundPlayer.stopSound(28)" onmouseup="soundPlayer.stopSound(28)"></div>
+        <div class="key white f" onmousedown="soundPlayer.playSound(29)" onmouseleave="soundPlayer.stopSound(29)" onmouseup="soundPlayer.stopSound(29)"></div>
+        <div class="key black f_sharp" onmousedown="soundPlayer.playSound(30)" onmouseleave="soundPlayer.stopSound(30)" onmouseup="soundPlayer.stopSound(30)"></div>
+        <div class="key white g" onmousedown="soundPlayer.playSound(31)" onmouseleave="soundPlayer.stopSound(31)" onmouseup="soundPlayer.stopSound(31)"></div>
+        <div class="key black g_sharp" onmousedown="soundPlayer.playSound(32)" onmouseleave="soundPlayer.stopSound(32)" onmouseup="soundPlayer.stopSound(32)"></div>
+        <div class="key white a" onmousedown="soundPlayer.playSound(33)" onmouseleave="soundPlayer.stopSound(33)" onmouseup="soundPlayer.stopSound(33)"></div>
+        <div class="key black a_sharp" onmousedown="soundPlayer.playSound(34)" onmouseleave="soundPlayer.stopSound(34)" onmouseup="soundPlayer.stopSound(34)"></div>
+        <div class="key white b" onmousedown="soundPlayer.playSound(35)" onmouseleave="soundPlayer.stopSound(35)" onmouseup="soundPlayer.stopSound(35)"></div>
+
+  </div>
+
+    <script src="../dist/index.js"></script>
+    <script>
+        let soundPlayer = null; // Declaração da variável soundPlayer
+        function iniciarObjeto() {
+        if (!soundPlayer) {
+            soundPlayer = new SoundPlayer(); // Cria o soundPlayer se ainda não estiver criado
+        }
+        }
+    </script>
+</body>
+</html>
