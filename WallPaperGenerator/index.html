@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Wallpaper</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        h1 {
+            margin-bottom: 10px;
+            text-align: center;
+            color: #6ab7ff;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 100%;
+        }
+        canvas {
+            border: 2px solid #444;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            max-width: 100%;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #6ab7ff, #4a78d0);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #7fc6ff, #5b8ae4);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, #ff6a9f, #d04a78);
+        }
+        .download-btn:hover {
+            background: linear-gradient(135deg, #ff7faf, #e45b8a);
+        }
+        .info {
+            text-align: center;
+            max-width: 600px;
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            button {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gerador de Wallpaper Abstrato</h1>
+        
+        <div class="controls">
+            <button id="generateBtn">Gerar Novo Wallpaper</button>
+            <button id="downloadBtn" class="download-btn">Baixar Wallpaper</button>
+        </div>
+        
+        <canvas id="wallpaperCanvas" width="1920" height="1080"></canvas>
+        
+        <div class="info">
+            <p>Este gerador cria wallpapers únicos com círculos translúcidos sobrepostos. Cada vez que você clica em "Gerar Novo Wallpaper", uma nova combinação de cores e formas é criada.</p>
+        </div>
+    </div>
+
+    <script>
+        // Elementos do DOM
+        const canvas = document.getElementById('wallpaperCanvas');
+        const ctx = canvas.getContext('2d');
+        const generateBtn = document.getElementById('generateBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        // Ajusta o tamanho do canvas para a exibição (mantendo a proporção)
+        function resizeCanvas() {
+            const maxWidth = Math.min(1920, window.innerWidth - 40);
+            const scale = maxWidth / 1920;
+            canvas.style.width = `${maxWidth}px`;
+            canvas.style.height = `${1080 * scale}px`;
+        }
+        
+        // Gera uma paleta de cores suaves e agradáveis
+        function gerarPaleta() {
+            return [
+                {
+                    r: Math.floor(Math.random() * 101) + 100,  // 100-200
+                    g: Math.floor(Math.random() * 101) + 100,  // 100-200
+                    b: Math.floor(Math.random() * 56) + 200    // 200-255
+                },
+                {
+                    r: Math.floor(Math.random() * 56) + 200,   // 200-255
+                    g: Math.floor(Math.random() * 101) + 100,  // 100-200
+                    b: Math.floor(Math.random() * 101) + 100   // 100-200
+                },
+                {
+                    r: Math.floor(Math.random() * 26) + 230,   // 230-255
+                    g: Math.floor(Math.random() * 26) + 230,   // 230-255
+                    b: Math.floor(Math.random() * 26) + 230    // 230-255
+                }
+            ];
+        }
+        
+        // Desenha o wallpaper
+        function desenharWallpaper() {
+            const LARGURA = canvas.width;
+            const ALTURA = canvas.height;
+            
+            const paleta = gerarPaleta();
+            
+            // Preenche o fundo com a primeira cor
+            const corFundo = paleta[0];
+            ctx.fillStyle = `rgb(${corFundo.r}, ${corFundo.g}, ${corFundo.b})`;
+            ctx.fillRect(0, 0, LARGURA, ALTURA);
+            
+            // Desenha círculos sobrepostos com cores da paleta
+            for (let i = 0; i < 15; i++) {
+                const x = Math.floor(Math.random() * LARGURA);
+                const y = Math.floor(Math.random() * ALTURA);
+                const raio = Math.floor(Math.random() * 501) + 100; // 100-600
+                
+                // Escolhe uma cor da paleta (excluindo a cor de fundo)
+                const corObj = paleta[Math.floor(Math.random() * 2) + 1];
+                const cor = `rgba(${corObj.r}, ${corObj.g}, ${corObj.b}, 0.2)`; // 0.2 = transparência
+                
+                // Desenha o círculo
+                ctx.beginPath();
+                ctx.arc(x, y, raio, 0, Math.PI * 2);
+                ctx.fillStyle = cor;
+                ctx.fill();
+            }
+        }
+        
+        // Gera um novo wallpaper
+        generateBtn.addEventListener('click', desenharWallpaper);
+        
+        // Baixa o wallpaper
+        downloadBtn.addEventListener('click', function() {
+            const link = document.createElement('a');
+            link.download = 'wallpaper_sereno.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        });
+        
+        // Redimensiona o canvas quando a janela for redimensionada
+        window.addEventListener('resize', resizeCanvas);
+        
+        // Inicialização
+        resizeCanvas();
+        desenharWallpaper();
+    </script>
+</body>
+</html>
